@@ -1,0 +1,90 @@
+<%= form_with model: order do |f| %>
+  <table border="1">
+    <caption align="top">
+      <%= f.text_field :name %>
+    </caption>
+    <tr>
+      <td class="td-position">
+        投手
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :pitcher_card_id, @pitcher.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-position">
+        捕手
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :catcher_card_id, @catcher.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-position">
+        一塁手
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :first_card_id, @first.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-position">
+        二塁手
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :second_card_id, @second.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-position">
+        三塁手
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :third_card_id, @third.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-position">
+        遊撃手
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :short_card_id, @short.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-position">
+        左翼手
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :left_card_id, @left.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-position">
+        中堅手
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :center_card_id, @center.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-position">
+        右翼手
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :right_card_id, @right.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-position">
+        DH
+      </td>
+      <td class="td-card">
+        <%= f.collection_select :dh_card_id, @dh.order(:image), :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+  </table>
+  <div class="submit">
+    <%= f.submit "オーダー決定" %>
+  </div>
+<% end %>

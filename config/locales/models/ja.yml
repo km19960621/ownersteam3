@@ -1,0 +1,38 @@
+ja:
+  activerecord:
+    models:
+      card: カード
+      order: オーダー
+      user: ユーザー
+    attributes:
+      card:
+        name: 選手名
+        image: カードの画像
+        pitcher: 投手
+        catcher: 捕手
+        first: 一塁手
+        second: 二塁手
+        third: 三塁手
+        short: 遊撃手
+        left: 左翼手
+        center: 中堅手
+        right: 右翼手
+        dh: DH
+      order:
+        name: チーム名
+        pitcher_card_id: 投手
+        catcher_card_id: 捕手
+        first_card_id: 一塁手
+        second_card_id: 二塁手
+        third_card_id: 三塁手
+        short_card_id: 遊撃手
+        left_card_id: 左翼手
+        center_card_id: 中堅手
+        right_card_id: 右翼手
+        dh_card_id: DH
+      user:
+        name: オーナー名
+        email: メールアドレス
+        image: プロフィール画像
+        password: パスワード
+        password_confirmation: パスワード（確認）

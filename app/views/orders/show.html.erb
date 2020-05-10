@@ -1,0 +1,141 @@
+<div class="user-wrapper">
+  <%= image_tag @user.image.url, class: "user-img" %>
+  <div class="user-name"><%= "オーナー名：#{@user.name}" %></div>
+  <%= link_to 'ユーザーのページへ', "/users/#{@user.id}", class: 'btn btn-sm user-btn' %>
+</div>
+<div class="order-wrapper">
+  <div class="order-single-wrapper">
+    <div class="order-name">
+      <% if @order.name? %>
+        <p class="order-name-text">
+          <%= @order.name %>
+        </p>
+      <% else %>
+        <p class="order-name-text">
+          <%= "駒形ダックス#{@order.id}" %>
+        </p>
+      <% end %>
+    </div>
+    <div class="order-single">
+      <div class="order-content">
+        <%= image_tag('ownersteam.png', :class => 'ground') %>
+        <% pitcher = Card.find(@order.pitcher_card_id) %>
+        <% catcher = Card.find(@order.catcher_card_id) %>
+        <% first = Card.find(@order.first_card_id) %>
+        <% second = Card.find(@order.second_card_id) %>
+        <% third = Card.find(@order.third_card_id) %>
+        <% short = Card.find(@order.short_card_id) %>
+        <% left = Card.find(@order.left_card_id) %>
+        <% center = Card.find(@order.center_card_id) %>
+        <% right = Card.find(@order.right_card_id) %>
+        <% if @order.dh_card_id %>
+          <% dh = Card.find(@order.dh_card_id) %>
+        <% end %>
+        <% cards = [pitcher, catcher, first, second, third, short, left, center, right, dh] %>
+        <% positions = ["pitcher", "catcher", "first", "second", "third", "short", "left", "center", "right", "dh"] %>
+        <% for num in 0..8 do %>
+          <%= link_to cards[num].image.url, 'data-lightbox': cards[num].image do %>
+            <%= image_tag cards[num].image.url, :class => "#{positions[num]} #{positions[num]}-img img" %>
+          <% end %>
+        <% end %>
+        <% if @order.dh_card_id %>
+          <%= link_to cards[9].image.url, 'data-lightbox': cards[9].image do %>
+            <%= image_tag cards[9].image.url, :class => "dh dh-img img" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<table border="1">
+  <caption align="top">
+    <%= @order.name %>
+  </caption>
+  <tr>
+    <td class="td-position">
+      投手
+    </td>
+    <td class="td-card">
+      <%= pitcher.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="td-position">
+      捕手
+    </td>
+    <td class="td-card">
+      <%= catcher.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="td-position">
+      一塁手
+    </td>
+    <td class="td-card">
+      <%= first.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="td-position">
+      二塁手
+    </td>
+    <td class="td-card">
+      <%= second.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="td-position">
+      三塁手
+    </td>
+    <td class="td-card">
+      <%= third.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="td-position">
+      遊撃手
+    </td>
+    <td class="td-card">
+      <%= short.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="td-position">
+      左翼手
+    </td>
+    <td class="td-card">
+      <%= left.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="td-position">
+      中堅手
+    </td>
+    <td class="td-card">
+      <%= center.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="td-position">
+      右翼手
+    </td>
+    <td class="td-card">
+      <%= right.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="td-position">
+      DH
+    </td>
+    <td class="td-card">
+      <% if dh %>
+        <%= dh.name %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<div class="order-edit">
+  <% if @order.user == current_user %>
+    <%= link_to 'オーダーの編集', "/orders/#{@order.id}/edit", class: 'btn  btn-sm order-edit-btn' %>
+  <% end %>
+</div>

@@ -1,0 +1,45 @@
+<div class="order-wrapper">
+  <% @orders.each do |order| %>
+    <div class="order-single-wrapper">
+      <div class="order-name">
+        <% if order.name? %>
+          <%= link_to order.name, "/orders/#{order.id}", class: "order-name-text" %>
+        <% else %>
+          <%= link_to "駒形ダックス#{order.id}", "/orders/#{order.id}", class: "order-name-text" %>
+        <% end %>
+      </div>
+      <div class="order-single">
+        <div class="order-content">
+          <%= image_tag('ownersteam.png', :class => 'ground') %>
+          <% pitcher = Card.find(order.pitcher_card_id) %>
+          <% catcher = Card.find(order.catcher_card_id) %>
+          <% first = Card.find(order.first_card_id) %>
+          <% second = Card.find(order.second_card_id) %>
+          <% third = Card.find(order.third_card_id) %>
+          <% short = Card.find(order.short_card_id) %>
+          <% left = Card.find(order.left_card_id) %>
+          <% center = Card.find(order.center_card_id) %>
+          <% right = Card.find(order.right_card_id) %>
+          <% if order.dh_card_id %>
+            <% dh = Card.find(order.dh_card_id) %>
+          <% end %>
+          <% cards = [pitcher, catcher, first, second, third, short, left, center, right, dh] %>
+          <% positions = ["pitcher", "catcher", "first", "second", "third", "short", "left", "center", "right", "dh"] %>
+          <% for num in 0..8 do %>
+            <%= link_to cards[num].image.url, 'data-lightbox': cards[num] do %>
+              <%= image_tag cards[num].image.url, :class => "#{positions[num]} #{positions[num]}-img img" %>
+            <% end %>
+          <% end %>
+          <% if order.dh_card_id %>
+            <%= link_to cards[9].image.url, 'data-lightbox': cards[9].image do %>
+              <%= image_tag cards[9].image.url, :class => "dh dh-img img" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="paginate">
+  <%= paginate @orders %>
+</div>

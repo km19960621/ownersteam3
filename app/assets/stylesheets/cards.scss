@@ -1,0 +1,30 @@
+.box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card-single-wrapper {
+  margin: 10px;
+  padding: 4.5px;
+  border: 1px solid black;
+  background: linear-gradient(to bottom, white, whitesmoke 50%, white);
+}
+.card-name {
+  text-align: center;
+  display: block;
+  font-size: 15px;
+  background: linear-gradient(to bottom, whitesmoke, gray);
+  border: 1px solid gray;
+  padding: 3px 0px;
+}
+.card-name-text {
+  color: white;
+  margin: 0;
+}
+.card-single {
+  padding: 3px 9px;
+  border: 1px solid gray;
+  background: linear-gradient(to bottom, white, gray 50%, white);
+}

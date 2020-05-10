@@ -1,0 +1,217 @@
+table {
+  background-color: black;
+  height: 400px;
+  margin: auto;
+  padding: 1px 5px;
+  border-collapse: separate;
+  border-spacing: 0px 3px;
+  border-radius: 5px;
+  border: 2px solid slategray;
+}
+select {
+  background-color: dimgray;
+  width: 125px;
+}
+caption {
+  text-align: center;
+}
+table th, td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+table td {
+  background-color: dimgray;
+}
+table th {
+  font-weight: normal;
+  background-color: slategray;
+  color: white;
+  text-align: center;
+}
+.td-position {
+  padding-left: 10px;
+  width: 75px;
+  color: white;
+}
+.td-card {
+  padding-left: 10px;
+  min-width: 150px;
+  color: white;
+}
+.submit {
+  text-align: center;
+  margin: 5px;
+}
+.order-wrapper {
+  width: 80vw;
+  max-width: 550px;
+  margin: auto;
+  margin-top: 10px;
+}
+.order-single-wrapper {
+  margin-bottom: 25px;
+  padding: 6px;
+  border: 1px solid black;
+  background: linear-gradient(to bottom, white, lightyellow 50%, white);
+}
+.order-name {
+  text-align: center;
+  font-size: 15px;
+  background: linear-gradient(to bottom, lightyellow, darkgoldenrod);
+  border: 1px solid darkgoldenrod;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.order-name-text {
+  color: white;
+  margin: 0;
+}
+.order-single {
+  padding: 4px 12px;
+  border: 1px solid darkgoldenrod;
+  background: linear-gradient(to bottom, lightyellow, darkgoldenrod 50%, lightyellow);
+}
+
+.order-content {
+  position: relative;
+}
+.ground {
+  width: 100%;
+  margin: auto;
+}
+.img {
+  width: 17.5%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.txt {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  .position {
+    background: darkgray;
+  }
+  .name {
+    background: white;
+  }
+}
+
+.pitcher {
+  left: 50%;
+}
+.pitcher-img {
+  top: 55%;
+}
+.pitcher-txt {
+  top: 0%;
+}
+
+.catcher {
+  left: 50%;
+}
+.catcher-img {
+  top: 85%;
+}
+.catcher-txt {
+  top: 0%;
+}
+
+.first {
+  left: 82.5%;
+}
+.first-img {
+  top: 57.5%;
+}
+.first-txt {
+  top: 0%;
+}
+
+.second {
+  left: 70%;
+}
+.second-img {
+  top: 32.5%;
+}
+.second-txt {
+  top: 0%;
+}
+
+.third {
+  left: 17.5%;
+}
+.third-img {
+  top: 57.5%;
+}
+.third-txt {
+  top: 0%;
+}
+
+.short {
+  left: 30%;
+}
+.short-img {
+  top: 32.5%;
+}
+.short-txt {
+  top: 0%;
+}
+
+.left {
+  left: 10%;
+}
+.left-img {
+  top: 15%;
+}
+.left-txt {
+  top: 0%;
+}
+
+.center {
+  left: 50%;
+}
+.center-img {
+  top: 12.5%;
+}
+.center-txt {
+  top: 0%;
+}
+
+.right {
+  left: 90%;
+}
+.right-img {
+  top: 15%;
+}
+.right-txt {
+  top: 0%;
+}
+
+.dh {
+  left: 87.5%;
+}
+.dh-img {
+  top: 87.5%;
+}
+.dh-txt {
+  top: 0%;
+}
+
+.user-name, .user-home {
+  color: white;
+  font-size: 12.5px;
+  margin: 7.5px;
+}
+.user-btn {
+  color: white;
+  background-color: mediumseagreen;
+  font-size: 5px;
+}
+.order-edit {
+  text-align: center;
+  margin: 10px;
+}
+.order-edit-btn {
+  color: white;
+  background-color: darkgoldenrod;
+  font-size: 5px;
+  margin: auto;
+}

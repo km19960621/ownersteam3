@@ -1,0 +1,12 @@
+<div class="user-wrapper">
+  <%= image_tag @user.image.url, class: "user-img" %>
+  <div class="user-name"><%= "オーナー名：#{@user.name}" %></div>
+  <div class="btn-wrapper">
+    <%= link_to 'オーダー', "/users/#{@user.id}/orders", class: 'btn btns btn-sm order-btn' %>
+    <%= link_to 'ランダムオーダー', "/users/#{@user.id}/random_orders", class: 'btn btns btn-sm order-btn' %>
+    <%= link_to 'カード', "/users/#{@user.id}/cards", class: 'btn btns btn-sm card-btn' %>
+    <% if current_user == @user %>
+      <%= link_to '編集', "/users/#{@user.id}/edit", class: 'btn btns btn-sm user-btn' %>
+    <% end %>
+  </div>
+</div>

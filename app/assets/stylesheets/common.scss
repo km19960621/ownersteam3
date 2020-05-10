@@ -1,0 +1,68 @@
+.background {
+    height: 100vh;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, deepskyblue),
+        color-stop(1, royalblue)
+    );
+    background-attachment: fixed !important;
+}
+
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+
+.navbar-transparent {
+  background: linear-gradient(to right, rgba(105, 105, 105, 0.95), rgba(105, 105, 105, 0.95)) ,url('navbar.jpg');
+  background-size: cover;
+  font-weight: 600;
+  a {
+    color: white !important;
+  }
+
+  .navbar-brand {
+    padding: 0px;
+    margin-top: 15px;
+    text-shadow: 1px 1px black;
+  }
+  .navbar-left {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 35px;
+  }
+}
+
+
+.btn-black {
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 15px;
+  background: linear-gradient(to bottom, dimgray, black 62%, dimgray);
+  margin-right: auto;
+  margin-left: auto;
+  &:hover {
+    color: #565656;
+  }
+}
+
+.paginate {
+  text-align: center;
+}
+
+.form {
+  padding: 10px;
+  .submit {
+    margin: 5px;
+  }
+}
+
+
+.link {
+  float: right;
+}

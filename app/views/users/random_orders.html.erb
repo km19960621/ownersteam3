@@ -1,0 +1,41 @@
+<div class="order-wrapper">
+  <% for alphabet in "A".."J" do %>
+    <div class="order-single-wrapper">
+      <div class="order-name">
+        <p class="order-name-text">
+          駒形ダックス<%= "#{alphabet}" %>
+        </p>
+      </div>
+      <div class="order-single">
+        <div class="order-content">
+          <%= image_tag('ownersteam.png', :class => 'ground') %>
+          <% for num in 1..1 do %>
+            <% pitcher = @pitchers.sample %>
+            <% catcher = @catchers.sample %>
+            <% first = @firsts.sample %>
+            <% second = @seconds.sample %>
+            <% third = @thirds.sample %>
+            <% short = @shorts.sample %>
+            <% left = @lefts.sample %>
+            <% center = @centers.sample %>
+            <% right = @rights.sample %>
+            <% dh = @dhs.sample %>
+            <% players = pitcher, catcher, first, second, third, short, left, center, right, dh %>
+
+            <% playername = [] %>
+            <% for player in players do %>
+              <% playername.push(player.name) %>
+            <% end %>
+           <% redo if playername.uniq.length != 10 || playername.include?("サブロー") && playername.include?("大村三郎") %>
+          <% end %>
+          <% positions = ["pitcher", "catcher", "first", "second", "third", "short", "left", "center", "right", "dh"] %>
+          <% for num in 1..10 do %>
+            <%= link_to players[num - 1].image.url, 'data-lightbox': players[num - 1].image do %>
+              <%= image_tag players[num - 1].image.url, :class => "#{positions[num - 1]} #{positions[num - 1]}-img img" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
