@@ -26,7 +26,9 @@
             <% for player in players do %>
               <% playername.push(player.name) %>
             <% end %>
-           <% redo if playername.uniq.length != 10 || playername.include?("サブロー") && playername.include?("大村三郎") %>
+
+            <%# 同名のカードが選択された場合は処理をやり直す %>
+            <% redo if playername.uniq.length != 10 || playername.include?("サブロー") && playername.include?("大村三郎") %>
           <% end %>
           <% positions = ["pitcher", "catcher", "first", "second", "third", "short", "left", "center", "right", "dh"] %>
           <% for num in 1..10 do %>
