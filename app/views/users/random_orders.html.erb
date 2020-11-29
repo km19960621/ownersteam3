@@ -1,43 +1,50 @@
 <div class="order-wrapper">
-  <% for alphabet in "A".."J" do %>
-    <div class="order-single-wrapper">
-      <div class="order-name">
-        <p class="order-name-text">
-          駒形ダックス<%= "#{alphabet}" %>
-        </p>
-      </div>
-      <div class="order-single">
-        <div class="order-content">
-          <%= image_tag('ownersteam.png', :class => 'ground') %>
-          <% for num in 1..1 do %>
-            <% pitcher = @pitchers.sample %>
-            <% catcher = @catchers.sample %>
-            <% first = @firsts.sample %>
-            <% second = @seconds.sample %>
-            <% third = @thirds.sample %>
-            <% short = @shorts.sample %>
-            <% left = @lefts.sample %>
-            <% center = @centers.sample %>
-            <% right = @rights.sample %>
-            <% dh = @dhs.sample %>
-            <% players = pitcher, catcher, first, second, third, short, left, center, right, dh %>
+  <% if @pitchers.length != 0 && @catchers.length != 0 && @firsts.length != 0 && @seconds.length != 0 && @thirds.length != 0 && @shorts.length != 0 && @lefts.length != 0 && @centers.length != 0 && @rights.length != 0 && @dhs.length != 0 %>
+    <% 10.times do %>
+      <div class="order-single-wrapper">
+        <div class="order-name">
+          <p class="order-name-text">
+            駒形ダックス<%= ("A".."Z").to_a[rand(26)] %>
+          </p>
+        </div>
+        <div class="order-single">
+          <div class="order-content">
+            <%= image_tag('ownersteam.png', :class => 'ground') %>
+            <% for num in 1..1 do %>
+              <% pitcher = @pitchers.sample %>
+              <% catcher = @catchers.sample %>
+              <% first = @firsts.sample %>
+              <% second = @seconds.sample %>
+              <% third = @thirds.sample %>
+              <% short = @shorts.sample %>
+              <% left = @lefts.sample %>
+              <% center = @centers.sample %>
+              <% right = @rights.sample %>
+              <% dh = @dhs.sample %>
+              <% players = pitcher, catcher, first, second, third, short, left, center, right, dh %>
 
-            <% playername = [] %>
-            <% for player in players do %>
-              <% playername.push(player.name) %>
-            <% end %>
+              <% playername = [] %>
+              <% for player in players do %>
+                <% playername.push(player.name) %>
+              <% end %>
 
-            <%# 同名のカードが選択された場合は処理をやり直す %>
-            <% redo if playername.uniq.length != 10 || playername.include?("サブロー") && playername.include?("大村三郎") %>
-          <% end %>
-          <% positions = ["pitcher", "catcher", "first", "second", "third", "short", "left", "center", "right", "dh"] %>
-          <% for num in 1..10 do %>
-            <%= link_to players[num - 1].image.url, 'data-lightbox': players[num - 1].image do %>
-              <%= image_tag players[num - 1].image.url, :class => "#{positions[num - 1]} #{positions[num - 1]}-img img" %>
+              <%# 同名のカードが選択された場合は処理をやり直す %>
+              <% redo if playername.uniq.length != 10 || playername.include?("サブロー") && playername.include?("大村三郎") %>
             <% end %>
-          <% end %>
+            <% positions = ["pitcher", "catcher", "first", "second", "third", "short", "left", "center", "right", "dh"] %>
+            <% for num in 1..10 do %>
+              <% player, position = players[num - 1], positions[num - 1] %>
+              <% if logged_in? %>
+                <% if player.user_id == current_user.id %>
+                  <%= link_to image_tag(player.image.url, :class => "#{position} #{position}-img img"), edit_card_path(player) %>
+                <% end %>
+              <% else %>
+                <%= image_tag player.image.url, :class => "#{position} #{position}-img img" %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
